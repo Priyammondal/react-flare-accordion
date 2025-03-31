@@ -1,0 +1,132 @@
+.accordion {
+    width: 100%;
+    max-width: 1200px;
+    margin: 20px auto;
+    font-family: Arial, sans-serif;
+}
+
+.accordion-item {
+    border-bottom: 1px solid #CCCCCC;
+}
+
+.accordion-item input {
+    display: none;
+}
+
+.accordion-title {
+    display: flex;
+    justify-content: space-between;
+    gap: 10px;
+    padding: 17px 15px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background 0.3s ease;
+}
+
+
+.accordion-content {
+    max-height: 0;
+    opacity: 0;
+    overflow: hidden;
+    padding: 0 15px;
+    font-size: 14px;
+    color: #555;
+    transform: scaleY(0);
+    transform-origin: top;
+    transition: transform 0.4s ease-in-out, opacity 0.3s ease-in-out, padding 0.3s ease-in-out, visibility 0s linear 0.4s;
+    visibility: hidden;
+}
+
+.accordion-item input:checked+.accordion-title+.accordion-content {
+    max-height: 1000px;
+    opacity: 1;
+    transform: scaleY(1);
+    padding: 15px;
+    padding-top: 0px;
+    visibility: visible;
+    transition: transform 0.4s ease-in-out, opacity 0.3s ease-in-out, padding 0.3s ease-in-out, visibility 0s;
+}
+
+.accordion-title .icon {
+    position: relative;
+}
+
+.accordion-title .icon span {
+    width: clamp(12px, 2vw, 16px);
+    transition: all 0.3s ease-in-out;
+    position: absolute;
+    right: 0;      
+}
+
+/* Plus icon visible by default */
+.accordion-title .icon .collapse-icon {
+    opacity: 0;
+}
+
+/* Minus icon hidden by default */
+.accordion-title .icon .expand-icon {
+    opacity: 1;
+}
+
+
+/* ========= ROTATE (Default) ========= */
+.accordion-title.rotate .icon img {
+    transition: all 0.3s ease-in-out;
+}
+
+.accordion-item input:checked+.accordion-title.rotate .icon .expand-icon {
+    opacity: 0;
+}
+.accordion-item input:checked+.accordion-title.rotate .icon .collapse-icon {
+    opacity: 1;
+    transform: rotate(45deg);
+}
+.accordion-item input:not(:checked)+.accordion-title.rotate .icon .expand-icon {
+    transform: rotate(0deg);
+    opacity: 1;
+}
+
+.accordion-item input:not(:checked)+.accordion-title.rotate .icon .collapse-icon {
+    opacity: 0;
+}
+
+/* ========= FADE IN/OUT ========= */
+.accordion-title.fade .icon img {
+    transition: opacity 0.3s ease-in-out;
+}
+
+/* When expanded */
+.accordion-item input:checked+.accordion-title.fade .icon .expand-icon {
+    opacity: 1;
+}
+
+/* When collapsing (animate back) */
+.accordion-item input:not(:checked)+.accordion-title.fade .icon .expand-icon {
+    opacity: 0;
+}
+
+.accordion-item input:not(:checked)+.accordion-title.fade .icon .collapse-icon {
+    opacity: 1;
+}
+
+/* ========= SCALE (ZOOM IN/OUT) ========= */
+.accordion-title.scale .icon img {
+    transition: transform 0.3s ease-in-out, opacity 0.3s ease-in-out;
+}
+
+/* When expanded */
+.accordion-item input:checked+.accordion-title.scale .icon .expand-icon {
+    transform: scale(1.2);
+    opacity: 1;
+}
+
+/* When collapsing (animate back) */
+.accordion-item input:not(:checked)+.accordion-title.scale .icon .expand-icon {
+    transform: scale(1);
+    opacity: 0;
+}
+
+.accordion-item input:not(:checked)+.accordion-title.scale .icon .collapse-icon {
+    transform: scale(1);
+    opacity: 1;
+}
