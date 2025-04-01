@@ -1,6 +1,6 @@
 {
   "name": "react-flare-accordion",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "type": "module",
   "description": "React Flare Accordion is a simple and customizable accordion component for React applications.",
   "main": "dist/index.js",
