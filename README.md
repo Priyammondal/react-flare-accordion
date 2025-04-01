@@ -4,9 +4,10 @@ A **highly configurable** and **lightweight** React accordion component with cus
 
 ## 🚀 Features
 - **Custom Icons**: Pass your own expand/collapse icons.
-- **Animations**: Easily configure animation effects.
+- **Animations**: Choose from multiple animation effects.
 - **Dynamic Data**: Accepts an array of objects with `title` and `content`.
 - **Minimal & Fast**: Small bundle size with zero dependencies.
+- **Dynamically Update Content**: Modify accordion data in real-time.
 
 ---
 
@@ -62,11 +63,27 @@ const [Accordion] = useAccordion(
   {
     animation: 'fade',
     icons: {
-      collapse: <FaPlus />,
-      expand: <FaMinus />,
+      collapse: <FaPlus />, // Icon for collapsed state
+      expand: <FaMinus />,  // Icon for expanded state
     },
   }
 );
+```
+
+---
+
+## 🎬 Available Animations
+
+You can customize the accordion animations using the `animation` option. Available animations include:
+
+- **`rotate`** *(default)* - Rotates the expand/collapse icon.
+- **`fade`** - Fades in and out.
+- **`scale`** - Zoom in/out effect.
+
+Example usage:
+
+```jsx
+const [Accordion] = useAccordion(data, { animation: 'scale' });
 ```
 
 ---
